@@ -55,6 +55,8 @@ module Poseidon
       c.topic_metadata(topics)
     rescue Connection::ConnectionFailedError
       return nil
+    ensure
+      c && c.close
     end
 
     def connection(broker_id)
